@@ -1,44 +1,119 @@
-/* style.css */
+/* Enhanced Styling with Animations */
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    line-height: 1.6;
+    font-family: 'Roboto Mono', monospace;
+    background-color: #0d0d0d;
+    color: #00ff99;
     margin: 0;
-    padding: 0;
+    scroll-behavior: smooth;
 }
 
+/* Navbar Styling */
 nav {
-    background-color: #2c3e50;
-    padding: 10px;
-    text-align: center;
+    background-color: #121212;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    transition: background-color 0.5s;
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+    list-style: none;
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: white;
+    color: #00ff99;
     text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
 }
 
+nav ul li a:hover {
+    color: #ff007f;
+    transform: scale(1.1);
+}
+
+/* Section Styling */
 section {
+    padding: 60px;
     margin: 20px;
-    padding: 20px;
-    background: white;
+    background: #1a1a1a;
     border-radius: 8px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
 }
 
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section h1 {
+    font-size: 2rem;
+    color: #00ff99;
+    border-bottom: 2px solid #ff007f;
+    margin-bottom: 20px;
+    animation: fadeIn 1s;
+}
+
+/* Project Card Styling */
+.project-card {
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    width: 300px;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00ff99;
+}
+
+.project-card h2 {
+    color: #ff007f;
+    animation: fadeIn 1.5s;
+}
+
+/* Footer Styling */
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #2c3e50;
-    color: white;
+    background-color: #121212;
+    color: #00ff99;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    .project-grid {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 20px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
 }
